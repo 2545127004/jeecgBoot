@@ -152,6 +152,13 @@ spring:
     password: '@214815.qq'
     port: 6379
     host: 47.93.91.99
+  rabbitmq:
+    host: 47.93.91.99
+    port: 5672
+    username: guest
+    password: guest
+
+
 #mybatis plus 设置
 mybatis-plus:
   mapper-locations: classpath*:org/jeecg/modules/**/xml/*Mapper.xml
@@ -207,6 +214,8 @@ jeecg :
     minio_name: ??
     minio_pass: ??
     bucketName: otatest
+
+
 #Mybatis输出sql日志
 logging:
   level:

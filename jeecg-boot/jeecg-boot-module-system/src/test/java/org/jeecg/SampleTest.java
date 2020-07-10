@@ -8,6 +8,7 @@ import org.jeecg.modules.demo.mock.MockController;
 import org.jeecg.modules.demo.test.entity.JeecgDemo;
 import org.jeecg.modules.demo.test.mapper.JeecgDemoMapper;
 import org.jeecg.modules.demo.test.service.IJeecgDemoService;
+import org.jeecg.modules.rabbitMq.MsgProducer;
 import org.jeecg.modules.system.service.ISysDataLogService;
 import org.junit.Assert;
 import org.junit.Test;
@@ -27,6 +28,8 @@ public class SampleTest {
 	private ISysDataLogService sysDataLogService;
 	@Resource
 	private MockController mock;
+	@Resource
+	private MsgProducer msgProducer;
 
 	@Test
 	public void testSelect() {
@@ -50,7 +53,7 @@ public class SampleTest {
 	public void testTran() {
 		jeecgDemoService.testTran();
 	}
-	
+
 	//author:lvdandan-----date：20190315---for:添加数据日志测试----
 	/**
 	 * 测试数据日志添加
@@ -64,4 +67,15 @@ public class SampleTest {
 		sysDataLogService.addDataLog(tableName, dataId, dataContent);
 	}
 	//author:lvdandan-----date：20190315---for:添加数据日志测试----
+@Test
+	public  void sendMsg(){
+		String msg="消息_";
+		for (int j=0;j<=100;j++){
+			StringBuilder stringBuilder=new StringBuilder();
+			stringBuilder.append(msg+j);
+		msgProducer.sendMsg(stringBuilder.toString());
+		}
+
+	}
+
 }

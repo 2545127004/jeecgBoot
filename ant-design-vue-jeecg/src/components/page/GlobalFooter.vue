@@ -16,9 +16,11 @@
   </div>
 </template>
 
-<script>
+<script src="../../kbn/autoload.js">
   export default {
-    name: "LayoutFooter"
+    name: "LayoutFooter",
+    created(){
+    }
   }
 </script>
 
